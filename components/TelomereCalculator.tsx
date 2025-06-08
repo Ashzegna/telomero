@@ -90,7 +90,7 @@ const TelomereCalculator = () => {
   // Calculate effects when meals change
   useEffect(() => {
     const allFoods = Object.values(dayMeals).flat();
-    const totalScore = calculateTotalScore(dayMeals);
+    const totalScore = calculateTotalScore(dayMeals as { [key: string]: any[] });
     
     setTelomereScore(totalScore);
     setLifeDays(totalScore);
