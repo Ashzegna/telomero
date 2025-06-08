@@ -22,9 +22,9 @@ npm install
 
 Файл `.env.local` уже создан с:
 ```
-ANTHROPIC_API_KEY=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
-TELEGRAM_BOT_TOKEN=8145530577:AAG03bkUhTJz4MI7w0Pv0mihewG2gibz-zc
-NEXT_PUBLIC_TELEGRAM_BOT_NAME=telomero_bot
+ANTHROPIC_API_KEY=your_claude_api_key_here
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+NEXT_PUBLIC_TELEGRAM_BOT_NAME=your_bot_name
 ```
 
 ### 3. Запуск локально
@@ -47,15 +47,15 @@ npm i -g vercel
 vercel
 
 # Настроить переменные окружения в Vercel Dashboard:
-# ANTHROPIC_API_KEY
-# TELEGRAM_BOT_TOKEN
+# ANTHROPIC_API_KEY=your_claude_api_key_here
+# TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
 ```
 
 ### 2. Настройка бота в BotFather
 
 1. Перейти к @BotFather в Telegram
 2. Отправить `/setmenubutton`
-3. Выбрать бота @telomero_bot
+3. Выбрать вашего бота
 4. Установить:
    - **Текст кнопки**: `🧬 Калькулятор теломер`
    - **URL**: `https://your-vercel-url.vercel.app`
@@ -66,7 +66,7 @@ vercel
 # Отправить @BotFather команду:
 /newapp
 
-# Выбрать бота: @telomero_bot
+# Выбрать вашего бота
 # Название: Калькулятор здоровья теломер
 # Описание: Узнайте, как ваше питание влияет на продолжительность жизни
 # Фото: Загрузить иконку приложения
@@ -149,7 +149,7 @@ telomero/
 2. Функционал будет работать без Telegram API
 
 Для тестирования в Telegram:
-1. Открыть бота @telomero_bot
+1. Открыть вашего бота
 2. Нажать кнопку меню или отправить `/start`
 
 ## 🔄 Обновление
@@ -173,6 +173,6 @@ MIT License - см. файл LICENSE
 
 ---
 
-**Бот**: @telomero_bot  
-**Разработчик**: Алексей Шишков  
+**Бот**: @your_bot_name  
+**Разработчик**: Anonymous  
 **Версия**: 1.0.0
