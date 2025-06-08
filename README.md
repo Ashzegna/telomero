@@ -20,12 +20,9 @@ npm install
 
 ### 2. Настройка переменных окружения
 
-Файл `.env.local` уже создан с:
-```
-ANTHROPIC_API_KEY=your_claude_api_key_here
-TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-NEXT_PUBLIC_TELEGRAM_BOT_NAME=your_bot_name
-```
+⚠️ **ВАЖНО**: Создайте файл `.env.local` с вашими ключами.
+
+Подробные инструкции смотрите в файле [SETUP.md](./SETUP.md)
 
 ### 3. Запуск локально
 
