@@ -1,8 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Anthropic from '@anthropic-ai/sdk';
+import { getConfig } from '@/lib/config';
+
+const config = getConfig();
 
 const anthropic = new Anthropic({
-  apiKey: process.env.CLAUDE_API_KEY || process.env.ANTHROPIC_API_KEY,
+  apiKey: config.anthropicKey,
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

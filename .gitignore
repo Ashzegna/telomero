@@ -31,11 +31,14 @@ yarn-error.log*
 *.env
 .env.*
 secrets/
-*secret*
-*key.txt
-*token.txt
+*secret*.txt
+*key*.txt
+*token*.txt
 api-keys/
 credentials/
+
+# Исключения: config.ts разрешен (публичная конфигурация)
+!lib/config.ts
 
 # Vercel
 .vercel

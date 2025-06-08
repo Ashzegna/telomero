@@ -1,3 +1,5 @@
+import { getConfig } from './config';
+
 // Telegram WebApp utilities
 export interface TelegramWebApp {
   ready: () => void;
@@ -123,11 +125,12 @@ export const initTelegramWebApp = () => {
 
 export const shareResults = (telomereScore: number, lifeDays: number) => {
   const tg = useTelegramWebApp();
+  const config = getConfig();
   
   if (tg) {
     const message = `🧬 Мой результат в калькуляторе теломер: ${lifeDays > 0 ? '+' : ''}${lifeDays} дней к жизни!
     
-Попробуй и ты: [ссылка на ваш бот]`;
+Попробуй и ты: https://t.me/${config.botName}/app`;
     
     tg.showPopup({
       title: '📊 Поделиться результатами',
