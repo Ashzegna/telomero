@@ -6,9 +6,7 @@ const nextConfig = {
   images: {
     domains: [],
   },
-  env: {
-    ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
-  },
+  // API ключи встроены в код, переменные окружения не нужны
 }
 
 module.exports = nextConfig
