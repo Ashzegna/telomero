@@ -187,7 +187,19 @@ const TelomereCalculator = () => {
     if (currentMeal === 'alcohol') {
       return telomereFoodsDatabase.alcohol;
     }
-    return telomereFoodsDatabase[currentMeal] || [];
+    // Безопасное обращение к свойству
+    switch (currentMeal) {
+      case 'breakfast':
+        return telomereFoodsDatabase.breakfast;
+      case 'lunch':
+        return telomereFoodsDatabase.lunch;
+      case 'dinner':
+        return telomereFoodsDatabase.dinner;
+      case 'snacks':
+        return telomereFoodsDatabase.snacks;
+      default:
+        return [];
+    }
   };
 
   const telomereStatus = getTelomereHealthStatus(telomereHealth);
