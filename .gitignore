@@ -22,12 +22,20 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local env files - НИКОГДА НЕ КОММИТИТЬ!
+# 🔒 СЕКРЕТНЫЕ ФАЙЛЫ - НИКОГДА НЕ КОММИТИТЬ!
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+*.env
+.env.*
+secrets/
+*secret*
+*key.txt
+*token.txt
+api-keys/
+credentials/
 
 # Vercel
 .vercel
@@ -36,11 +44,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Секретные файлы
-**/secrets/**
-**/*secret*
-**/*key*
-**/*token*
-
-# Временные файлы
-clean-repo.sh
+# 🛠 Временные файлы
+security-check.sh
+*.log
+*.tmp
+.cache/
