@@ -44,8 +44,7 @@ npm i -g vercel
 vercel
 
 # Настроить переменные окружения в Vercel Dashboard:
-# ANTHROPIC_API_KEY=your_claude_api_key_here
-# TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+# Добавьте ваши API ключи через интерфейс Vercel
 ```
 
 ### 2. Настройка бота в BotFather

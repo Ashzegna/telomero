@@ -4,13 +4,13 @@
 
 ```bash
 # Получите API ключ на https://console.anthropic.com/
-ANTHROPIC_API_KEY=your_claude_api_key_here
+ANTHROPIC_API_KEY=paste_your_claude_key_here
 
 # Токен вашего Telegram бота от @BotFather
-TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+TELEGRAM_BOT_TOKEN=paste_your_bot_token_here
 
 # Имя вашего бота (без @)
-NEXT_PUBLIC_TELEGRAM_BOT_NAME=your_bot_name
+NEXT_PUBLIC_TELEGRAM_BOT_NAME=your_bot_username
 ```
 
 ## 📝 Как получить ключи:
