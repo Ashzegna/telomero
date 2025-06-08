@@ -127,7 +127,7 @@ export const shareResults = (telomereScore: number, lifeDays: number) => {
   if (tg) {
     const message = `🧬 Мой результат в калькуляторе теломер: ${lifeDays > 0 ? '+' : ''}${lifeDays} дней к жизни!
     
-Попробуй и ты: https://t.me/telomero_bot/app`;
+Попробуй и ты: [ссылка на ваш бот]`;
     
     tg.showPopup({
       title: '📊 Поделиться результатами',

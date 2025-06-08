@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Anthropic from '@anthropic-ai/sdk';
 
 const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
+  apiKey: process.env.CLAUDE_API_KEY || process.env.ANTHROPIC_API_KEY,
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
