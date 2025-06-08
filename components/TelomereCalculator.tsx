@@ -21,6 +21,7 @@ import {
 } from '@/lib/calculations';
 
 interface DayMeals {
+  [key: string]: (Food & { id: number })[];
   breakfast: (Food & { id: number })[];
   lunch: (Food & { id: number })[];
   dinner: (Food & { id: number })[];
@@ -90,7 +91,7 @@ const TelomereCalculator = () => {
   // Calculate effects when meals change
   useEffect(() => {
     const allFoods = Object.values(dayMeals).flat();
-    const totalScore = calculateTotalScore(dayMeals as { [key: string]: any[] });
+    const totalScore = calculateTotalScore(dayMeals);
     
     setTelomereScore(totalScore);
     setLifeDays(totalScore);

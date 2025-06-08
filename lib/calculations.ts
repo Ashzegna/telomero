@@ -141,7 +141,7 @@ export const calculateTelomereHealth = (totalScore: number): number => {
 };
 
 // Calculate total telomere score from all foods
-export const calculateTotalScore = (dayMeals: { [key: string]: any[] }): number => {
+export const calculateTotalScore = (dayMeals: Record<string, any[]>): number => {
   const allFoods = Object.values(dayMeals).flat();
   return allFoods.reduce((sum, food) => sum + (food.telomerePoints || 0), 0);
 };
