@@ -1,0 +1,18 @@
+{
+  "functions": {
+    "pages/api/analyze-food.ts": {
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "ANTHROPIC_API_KEY": "@anthropic_api_key",
+    "TELEGRAM_BOT_TOKEN": "@telegram_bot_token"
+  },
+  "regions": ["fra1"],
+  "rewrites": [
+    {
+      "source": "/telegram-web-app.js",
+      "destination": "https://telegram.org/js/telegram-web-app.js"
+    }
+  ]
+}
