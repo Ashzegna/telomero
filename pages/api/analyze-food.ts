@@ -19,10 +19,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: 'Название продукта слишком короткое' });
   }
 
+  console.log('=== ДИАГНОСТИКА API ===');
   console.log('Анализируем продукт:', foodName.trim());
-  console.log('Используем API ключ:', config.anthropicKey ? '****' + config.anthropicKey.slice(-4) : 'НЕ НАЙДЕН');
+  console.log('Config:', {
+    hasAnthropicKey: !!config.anthropicKey,
+    keyLength: config.anthropicKey?.length,
+    keyPrefix: config.anthropicKey?.slice(0, 15) + '...',
+    keySuffix: '...' + config.anthropicKey?.slice(-10)
+  });
+  console.log('Environment variables:', {
+    ANTHROPIC_API_KEY: !!process.env.ANTHROPIC_API_KEY,
+    CLAUDE_API_KEY: !!process.env.CLAUDE_API_KEY
+  });
 
   try {
+    console.log('Создаем Anthropic клиент...');
+    console.log('Отправляем запрос к Claude API...');
+    
     const response = await anthropic.messages.create({
       model: 'claude-3-5-sonnet-20241022',
       max_tokens: 500,
@@ -63,6 +76,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
       ]
     });
+
+    console.log('✅ Получен ответ от Claude API!');
+    console.log('Response type:', typeof response);
+    console.log('Response content length:', response.content?.length);
 
     const content = response.content[0];
     if (content.type !== 'text') {
@@ -125,7 +142,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (error) {
-    console.error('Claude API Error:', error);
+    console.error('❌ Claude API Error:', error);
+    console.error('Error details:', {
+      name: error?.name,
+      message: error?.message,
+      status: error?.status,
+      type: error?.type
+    });
     
     return res.status(500).json({ 
       error: 'Ошибка анализа продукта',
