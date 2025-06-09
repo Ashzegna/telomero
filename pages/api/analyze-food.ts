@@ -141,13 +141,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       isCustom: true
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('❌ Claude API Error:', error);
     console.error('Error details:', {
-      name: error?.name,
-      message: error?.message,
-      status: error?.status,
-      type: error?.type
+      name: error?.name || 'Unknown',
+      message: error?.message || 'No message',
+      status: error?.status || 'No status',
+      type: error?.type || 'No type'
     });
     
     return res.status(500).json({ 
