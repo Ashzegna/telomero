@@ -2,6 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Игровые карточки - спецэффекты */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Градиенты для карточек */
+.card-harmful {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+}
+
+.card-protective {
+  background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #4ade80 100%);
+  box-shadow: 0 20px 40px rgba(22, 163, 74, 0.3);
+}
+
+.card-neutral {
+  background: linear-gradient(135deg, #4b5563 0%, #6b7280 50%, #9ca3af 100%);
+  box-shadow: 0 20px 40px rgba(75, 85, 99, 0.3);
+}
+
+/* Эффекты при наведении */
+.food-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.food-card:active {
+  transform: translateY(-2px) scale(0.98);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Блики и отражения */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+}
+
+/* Текстовые эффекты */
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.text-damage {
+  text-shadow: 0 0 10px rgba(220, 38, 38, 0.8);
+}
+
+.text-heal {
+  text-shadow: 0 0 10px rgba(22, 163, 74, 0.8);
+}
+
 /* Telegram WebApp CSS Variables */
 :root {
   --tg-color-bg: #ffffff;
