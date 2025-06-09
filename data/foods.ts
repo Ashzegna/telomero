@@ -2,7 +2,7 @@
 export interface Food {
   name: string;
   telomerePoints: number; // -25 до +25
-  calories: number; // ккал на 100г
+  calories?: number; // ккал на 100г (опциональное поле)
   category: 'protective' | 'neutral' | 'damaging' | 'alcohol';
   mechanism: string; // научное объяснение
   effects: {
@@ -43,6 +43,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Греческий йогурт с медом",
       telomerePoints: 10,
+      calories: 130,
       category: "protective",
       mechanism: "Пробиотики снижают воспаление, мед содержит антиоксиданты",
       effects: { oxidativeStress: -5, inflammation: -12, telomeraseActivity: 6, dnaRepair: 6 }
@@ -50,6 +51,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Авокадо-тост цельнозерновой",
       telomerePoints: 13,
+      calories: 190,
       category: "protective",
       mechanism: "Мононенасыщенные жиры снижают воспаление клеток",
       effects: { oxidativeStress: -8, inflammation: -12, telomeraseActivity: 8, dnaRepair: 6 }
@@ -57,6 +59,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Смузи с зеленью и фруктами",
       telomerePoints: 16,
+      calories: 85,
       category: "protective", 
       mechanism: "Концентрация антиоксидантов и фолатов для защиты ДНК",
       effects: { oxidativeStress: -15, inflammation: -10, telomeraseActivity: 8, dnaRepair: 12 }
@@ -64,6 +67,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Мюсли с орехами и ягодами",
       telomerePoints: 14,
+      calories: 450,
       category: "protective",
       mechanism: "Клетчатка и антиоксиданты поддерживают клеточное здоровье",
       effects: { oxidativeStress: -10, inflammation: -8, telomeraseActivity: 8, dnaRepair: 10 }
@@ -71,6 +75,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Омлет со шпинатом",
       telomerePoints: 11,
+      calories: 180,
       category: "protective",
       mechanism: "Фолиевая кислота и лютеин защищают от повреждений ДНК",
       effects: { oxidativeStress: -8, inflammation: -6, telomeraseActivity: 6, dnaRepair: 8 }
@@ -79,6 +84,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Каша рисовая на воде",
       telomerePoints: 3,
+      calories: 89,
       category: "neutral",
       mechanism: "Простые углеводы без значительного влияния на теломеры",
       effects: { oxidativeStress: 0, inflammation: 2, telomeraseActivity: 2, dnaRepair: 0 }
@@ -86,6 +92,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Кофе черный без сахара",
       telomerePoints: 5,
+      calories: 2,
       category: "neutral",
       mechanism: "Антиоксиданты кофе умеренно защищают теломеры",
       effects: { oxidativeStress: -4, inflammation: -2, telomeraseActivity: 2, dnaRepair: 4 }
@@ -93,6 +100,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Чай зеленый",
       telomerePoints: 8,
+      calories: 1,
       category: "protective",
       mechanism: "EGCG активирует теломеразу и защищает от окисления",
       effects: { oxidativeStress: -8, inflammation: -6, telomeraseActivity: 8, dnaRepair: 6 }
@@ -101,6 +109,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Белый хлеб с маслом",
       telomerePoints: -8,
+      calories: 280,
       category: "damaging",
       mechanism: "Рафинированные углеводы ускоряют укорачивание теломер",
       effects: { oxidativeStress: 10, inflammation: 8, telomeraseActivity: -6, dnaRepair: -4 }
@@ -108,6 +117,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Сладкие хлопья с молоком",
       telomerePoints: -12,
+      calories: 320,
       category: "damaging",
       mechanism: "Избыток сахара усиливает оксидативный стресс",
       effects: { oxidativeStress: 15, inflammation: 12, telomeraseActivity: -8, dnaRepair: -6 }
@@ -115,6 +125,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Круассан с джемом",
       telomerePoints: -10,
+      calories: 350,
       category: "damaging",
       mechanism: "Трансжиры и сахар повреждают клеточные мембраны",
       effects: { oxidativeStress: 12, inflammation: 10, telomeraseActivity: -6, dnaRepair: -8 }
@@ -122,6 +133,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Бутерброд с колбасой",
       telomerePoints: -14,
+      calories: 290,
       category: "damaging",
       mechanism: "Нитраты в колбасе повреждают ДНК и ускоряют старение",
       effects: { oxidativeStress: 16, inflammation: 14, telomeraseActivity: -10, dnaRepair: -8 }
@@ -129,6 +141,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Кофе с сахаром и сливками",
       telomerePoints: -6,
+      calories: 150,
       category: "damaging",
       mechanism: "Добавленный сахар нивелирует пользу антиоксидантов",
       effects: { oxidativeStress: 8, inflammation: 6, telomeraseActivity: -4, dnaRepair: -2 }
@@ -136,6 +149,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Пончик или булочка",
       telomerePoints: -15,
+      calories: 400,
       category: "damaging",
       mechanism: "Трансжиры и сахар создают воспалительную среду",
       effects: { oxidativeStress: 18, inflammation: 15, telomeraseActivity: -8, dnaRepair: -10 }
@@ -147,6 +161,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Салат с жирной рыбой",
       telomerePoints: 20,
+      calories: 250,
       category: "protective",
       mechanism: "Омега-3 кислоты активируют теломеразу и защищают ДНК",
       effects: { oxidativeStress: -15, inflammation: -18, telomeraseActivity: 20, dnaRepair: 15 }
@@ -154,6 +169,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Лосось на пару с овощами",
       telomerePoints: 22,
+      calories: 200,
       category: "protective",
       mechanism: "Максимальная концентрация омега-3 и антиоксидантов",
       effects: { oxidativeStress: -18, inflammation: -20, telomeraseActivity: 22, dnaRepair: 18 }
@@ -161,6 +177,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Салат с авокадо и киноа",
       telomerePoints: 16,
+      calories: 180,
       category: "protective",
       mechanism: "Полноценные аминокислоты и здоровые жиры для клеток",
       effects: { oxidativeStress: -12, inflammation: -14, telomeraseActivity: 10, dnaRepair: 12 }
@@ -168,6 +185,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Суп из чечевицы с овощами",
       telomerePoints: 13,
+      calories: 120,
       category: "protective",
       mechanism: "Растительный белок и фолаты поддерживают репарацию ДНК",
       effects: { oxidativeStress: -8, inflammation: -10, telomeraseActivity: 8, dnaRepair: 12 }
@@ -175,6 +193,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Гречка с курицей",
       telomerePoints: 11,
+      calories: 160,
       category: "protective",
       mechanism: "Рутин в гречке и белки поддерживают клеточное здоровье",
       effects: { oxidativeStress: -6, inflammation: -8, telomeraseActivity: 6, dnaRepair: 8 }
@@ -182,6 +201,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Овощное рагу с бобовыми",
       telomerePoints: 14,
+      calories: 95,
       category: "protective",
       mechanism: "Фитонутриенты овощей поддерживают целостность теломер",
       effects: { oxidativeStress: -12, inflammation: -10, telomeraseActivity: 8, dnaRepair: 12 }
@@ -189,6 +209,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Борщ без мяса со сметаной",
       telomerePoints: 8,
+      calories: 80,
       category: "protective",
       mechanism: "Свекла содержит беталаины - мощные антиоксиданты",
       effects: { oxidativeStress: -8, inflammation: -6, telomeraseActivity: 4, dnaRepair: 6 }
@@ -196,6 +217,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Салат Цезарь с курицей",
       telomerePoints: 5,
+      calories: 220,
       category: "neutral",
       mechanism: "Белок полезен, но соус и сухарики добавляют воспаление",
       effects: { oxidativeStress: 2, inflammation: 4, telomeraseActivity: 4, dnaRepair: 2 }
@@ -203,6 +225,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Суши с лососем",
       telomerePoints: 12,
+      calories: 150,
       category: "protective",
       mechanism: "Омега-3 из рыбы, но белый рис снижает пользу",
       effects: { oxidativeStress: -8, inflammation: -10, telomeraseActivity: 12, dnaRepair: 8 }
@@ -211,6 +234,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Бургер с картошкой фри",
       telomerePoints: -18,
+      calories: 650,
       category: "damaging",
       mechanism: "Трансжиры и избыток калорий ускоряют старение теломер",
       effects: { oxidativeStress: 20, inflammation: 22, telomeraseActivity: -15, dnaRepair: -12 }
@@ -218,6 +242,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Пельмени с майонезом",
       telomerePoints: -14,
+      calories: 350,
       category: "damaging",
       mechanism: "Обработанное мясо содержит вещества, повреждающие ДНК",
       effects: { oxidativeStress: 15, inflammation: 18, telomeraseActivity: -10, dnaRepair: -8 }
@@ -225,6 +250,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Пицца пепперони",
       telomerePoints: -16,
+      calories: 280,
       category: "damaging",
       mechanism: "Нитраты, трансжиры и избыток натрия повреждают клетки",
       effects: { oxidativeStress: 18, inflammation: 20, telomeraseActivity: -12, dnaRepair: -10 }
@@ -232,6 +258,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Жареная картошка с котлетой",
       telomerePoints: -12,
+      calories: 450,
       category: "damaging",
       mechanism: "Акриламид при жарке повреждает клеточные структуры",
       effects: { oxidativeStress: 12, inflammation: 15, telomeraseActivity: -8, dnaRepair: -6 }
@@ -239,6 +266,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Шаурма",
       telomerePoints: -13,
+      calories: 300,
       category: "damaging",
       mechanism: "Обработанное мясо и соусы создают воспалительную среду",
       effects: { oxidativeStress: 14, inflammation: 16, telomeraseActivity: -8, dnaRepair: -10 }
@@ -246,6 +274,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Макароны с сосисками",
       telomerePoints: -15,
+      calories: 320,
       category: "damaging",
       mechanism: "Нитраты и рафинированные углеводы ускоряют старение",
       effects: { oxidativeStress: 16, inflammation: 18, telomeraseActivity: -10, dnaRepair: -8 }
@@ -253,6 +282,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Роллы в кляре жареные",
       telomerePoints: -10,
+      calories: 250,
       category: "damaging",
       mechanism: "Жарка в масле создает вредные соединения",
       effects: { oxidativeStress: 12, inflammation: 10, telomeraseActivity: -6, dnaRepair: -8 }

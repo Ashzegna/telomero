@@ -107,7 +107,7 @@ const HealthRPGApp = () => {
 
   // Добавление продукта
   const addFood = async (food: Food, weight?: number) => {
-    const actualCalories = weight ? Math.round(food.calories * weight / 100) : food.calories;
+    const actualCalories = weight ? Math.round((food.calories || 100) * weight / 100) : (food.calories || 100);
     
     const foodEntry: FoodEntry = {
       name: weight ? `${food.name} (${weight}г)` : food.name,
