@@ -173,4 +173,4 @@ MIT License - см. файл LICENSE
 
 **Бот**: @your_bot_name  
 **Разработчик**: Anonymous  
-**Версия**: 1.0.0
+**Версия**: 1.0.1 (Обновлен API ключ Claude)

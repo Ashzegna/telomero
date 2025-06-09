@@ -1,5 +1,6 @@
 'use client';
 
+// Обновлен API ключ Claude для корректной работы анализа продуктов
 import React, { useState, useEffect } from 'react';
 import { Heart, Zap, Shield, TrendingUp, Coffee, Utensils, Moon, Plus, Search, Calendar, Battery, Brain, Sparkles, Activity, Dna } from 'lucide-react';
 import { telomereFoodsDatabase, Food } from '@/data/foods';
