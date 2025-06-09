@@ -1,16 +1,17 @@
 // Конфигурация API ключей для приложения
-// Все ключи зашифрованы и безопасны для публичного репозитория
+// ВСЕ КЛЮЧИ ХРАНЯТСЯ ТОЛЬКО В ПЕРЕМЕННЫХ ОКРУЖЕНИЯ!
+// НЕ ДОБАВЛЯЙТЕ РЕАЛЬНЫЕ КЛЮЧИ В ЭТОТ ФАЙЛ!
 
 export const config = {
-  // Claude API ключ (используйте ваш настоящий ключ)
+  // Claude API - только из environment variables
   anthropic: {
-    key: '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'
+    key: process.env.ANTHROPIC_API_KEY || ''
   },
   
-  // Telegram Bot конфигурация
+  // Telegram Bot - только из environment variables
   telegram: {
-    token: '8145530577:AAG03bkUhTJz4MI7w0Pv0mihewG2gibz-zc',
-    botName: 'telomero_bot'
+    token: process.env.TELEGRAM_BOT_TOKEN || '',
+    botName: process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || 'telomero_bot'
   },
 
   // Vercel конфигурация

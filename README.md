@@ -18,13 +18,21 @@ Telegram Mini App для отслеживания влияния питания 
 npm install
 ```
 
-### 2. Конфигурация готова!
+### 2. Конфигурация API ключей
 
-✅ **API ключи уже встроены** в приложение!
+⚠️ **ВАЖНО: Ключи хранятся только в переменных окружения!**
 
-Приложение работает "из коробки" без дополнительных настроек.
+```bash
+# Скопируйте шаблон
+cp .env.example .env.local
 
-_Опционально: можно создать `.env.local` для переопределения ключей_
+# Отредактируйте .env.local с вашими ключами
+nano .env.local
+```
+
+Получите ключи:
+- **Claude API**: https://console.anthropic.com/settings/keys
+- **Telegram Bot**: @BotFather в Telegram
 
 ### 3. Запуск локально
 
@@ -44,10 +52,16 @@ npm i -g vercel
 
 # Деплой
 vercel
-
-# Настроить переменные окружения в Vercel Dashboard:
-# Добавьте ваши API ключи через интерфейс Vercel
 ```
+
+⚠️ **ОБЯЗАТЕЛЬНО: Настройте переменные окружения в Vercel Dashboard:**
+
+1. Перейдите: **Settings** → **Environment Variables**
+2. Добавьте:
+   - `ANTHROPIC_API_KEY` = ваш_claude_ключ
+   - `TELEGRAM_BOT_TOKEN` = ваш_телеграм_токен
+   - `NEXT_PUBLIC_TELEGRAM_BOT_NAME` = имя_бота
+3. Убедитесь: **Production**, **Preview**, **Development** все отмечены
 
 ### 2. Настройка бота в BotFather
 
