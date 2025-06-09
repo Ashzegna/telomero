@@ -6,6 +6,7 @@ import FoodCard from './FoodCard';
 import ProfileSetup from './ProfileSetup';
 import { telomereFoodsDatabase, Food } from '@/data/foods';
 import { initTelegramWebApp, shareResults, showHapticFeedback } from '@/lib/telegram';
+import { getCaloriesSafe, getCaloriesExtended } from '@/lib/calories-utils';
 import { 
   UserProfile, 
   FoodEntry, 
@@ -105,9 +106,11 @@ const HealthRPGApp = () => {
     }
   };
 
-  // Добавление продукта
+// Добавление продукта
   const addFood = async (food: Food, weight?: number) => {
-    const actualCalories = weight ? Math.round((food.calories || 100) * weight / 100) : (food.calories || 100);
+    // Безопасное получение calories с возможностью получения через API
+    const safeCalories = await getCaloriesExtended(food);
+    const actualCalories = weight ? Math.round(safeCalories * weight / 100) : safeCalories;
     
     const foodEntry: FoodEntry = {
       name: weight ? `${food.name} (${weight}г)` : food.name,
@@ -323,17 +326,22 @@ const HealthRPGApp = () => {
 
           {/* Сетка карточек */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {telomereFoodsDatabase[currentMealType].map((food, index) => (
-              <FoodCard
-                key={index}
-                name={food.name}
-                telomerePoints={food.telomerePoints}
-                calories={food.calories || 100}
-                mechanism={food.mechanism}
-                onAdd={() => addFood(food)}
-                showCompensation={food.telomerePoints < 0}
-              />
-            ))}
+            {telomereFoodsDatabase[currentMealType].map((food, index) => {
+              // Безопасное получение calories с fallback
+              const safeCalories = getCaloriesSafe(food);
+              
+              return (
+                <FoodCard
+                  key={index}
+                  name={food.name}
+                  telomerePoints={food.telomerePoints}
+                  calories={safeCalories}
+                  mechanism={food.mechanism}
+                  onAdd={() => addFood(food)}
+                  showCompensation={food.telomerePoints < 0}
+                />
+              );
+            })}
           </div>
         </div>
       )}
