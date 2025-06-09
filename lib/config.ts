@@ -4,7 +4,7 @@
 export const config = {
   // Claude API ключ (используйте ваш настоящий ключ)
   anthropic: {
-    key: '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'
+    key: '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'
   },
   
   // Telegram Bot конфигурация

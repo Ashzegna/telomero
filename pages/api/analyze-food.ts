@@ -19,6 +19,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ error: 'Название продукта слишком короткое' });
   }
 
+  console.log('Анализируем продукт:', foodName.trim());
+  console.log('Используем API ключ:', config.anthropicKey ? '****' + config.anthropicKey.slice(-4) : 'НЕ НАЙДЕН');
+
   try {
     const response = await anthropic.messages.create({
       model: 'claude-3-5-sonnet-20241022',
