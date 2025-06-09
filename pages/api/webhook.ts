@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           inline_keyboard: [[
             {
               text: "🧬 Открыть калькулятор",
-              web_app: { url: `https://${req.headers.host}` }
+              web_app: { url: "https://t.me/telomero_bot/telomere" }
             }
           ]]
         };
