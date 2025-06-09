@@ -63,8 +63,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     let foodData;
     try {
       foodData = JSON.parse(content.text);
+      console.log('Claude response for:', foodName, ':', content.text); // Логируем ответ Claude
     } catch (parseError) {
       console.error('Failed to parse Claude response:', content.text);
+      console.log('Raw Claude response:', content.text); // Логируем сырой ответ
       
       // Fallback if Claude returns non-JSON
       foodData = {
