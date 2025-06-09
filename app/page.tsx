@@ -1,7 +1,7 @@
 'use client';
 
-import TelomereCalculator from '@/components/TelomereCalculator';
+import HealthRPGApp from '@/components/HealthRPGApp';
 
 export default function Home() {
-  return <TelomereCalculator />;
+  return <HealthRPGApp />;
 }

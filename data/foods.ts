@@ -2,6 +2,7 @@
 export interface Food {
   name: string;
   telomerePoints: number; // -25 до +25
+  calories: number; // ккал на 100г
   category: 'protective' | 'neutral' | 'damaging' | 'alcohol';
   mechanism: string; // научное объяснение
   effects: {
@@ -18,6 +19,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Овсянка с ягодами",
       telomerePoints: 15,
+      calories: 68,
       category: "protective",
       mechanism: "Антиоксиданты защищают теломеры от свободных радикалов",
       effects: { oxidativeStress: -12, inflammation: -8, telomeraseActivity: 10, dnaRepair: 8 }
@@ -25,6 +27,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Яичница с овощами",
       telomerePoints: 12,
+      calories: 154,
       category: "protective", 
       mechanism: "Витамин E и каротиноиды поддерживают длину теломер",
       effects: { oxidativeStress: -8, inflammation: -6, telomeraseActivity: 6, dnaRepair: 10 }
@@ -32,6 +35,7 @@ export const telomereFoodsDatabase = {
     {
       name: "Творог с орехами",
       telomerePoints: 14,
+      calories: 159,
       category: "protective",
       mechanism: "Омега-3 и белки способствуют активности теломеразы", 
       effects: { oxidativeStress: -6, inflammation: -10, telomeraseActivity: 12, dnaRepair: 8 }
